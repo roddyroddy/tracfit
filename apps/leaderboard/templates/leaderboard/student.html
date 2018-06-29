@@ -10,100 +10,82 @@
   <link href="https://fonts.googleapis.com/css?family=Fugaz+One" rel="stylesheet">
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   <style>
-    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-    .row.content {height: 1500px}
+        /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+        .row.content {
+            height: 100%;
+            background: linear-gradient(to right, white, white, lightgrey)
+        
+        }
     
-    /* Set gray background color and 100% height */
-    .sidenav {
-      background-color: #f1f1f1;
-      height: 100%;
-      padding-top: 10px;
-    }
-    .table{
-        overflow: scroll;
-        max-height: 400px;
-    }
-    .profile{
-      max-height: 50px;
-      max-width: 50px;
-    }
-    h1{
-      font-size: 99px;
-      font-family: 'Fugaz One', cursive;
-      margin: 10px;
-    }
-    /* *{
-        border: 1px solid black;
-    } */
-    .workout{
-        width: 95%;
-        /* display: inline-block; */
-    }
-    .workout div{
-        width: 45%;
-        vertical-align: top;
-    }
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
-
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-    .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-    .row.content {height: auto;} 
-    }
-    .B{
-        vertical-align: top;
-    }
-    body {font-family: Arial, Helvetica, sans-serif;}
-
-    /* The Modal (background) */
-    .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Sit on top */
-        padding-top: 300px; /* Location of the box */
-        left: 20%;
-        top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        overflow: auto; /* Enable scroll if needed */
-        background-color: rgb(0,0,0); /* Fallback color */
-        background-color: rgba(0,0,0,0.0); /* Black w/ opacity */
-    }
-
-    /* Modal Content */
-    .modal-content {
-        background-color: #fefefe;
-        margin: auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-
-    }
-
-    /* The Close Button */
-    .close {
-        color: #aaaaaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-    }
-  </style>
+        .w-auto {
+            width: auto;
+        }
+        .name{
+            /* border: 1px solid black; */
+            display: inline-block;
+    
+        }
+        /* Set gray background color and 100% height */
+        .sidenav {
+          background-color: #000000;
+          height: 951px;
+          color: white;
+          padding-top: 10px;
+        }
+        .table{
+            overflow: scroll;
+            max-height: 250px;
+            width: 350px;
+        }
+        .profile{
+          max-height: 50px;
+          max-width: 50px;
+        }
+        h1{
+          font-size: 50px;
+          font-family: 'Fugaz One', cursive;
+          margin: 10px;
+        }
+    
+        .workout{
+            width: 95%;
+            display: inline-block;
+        }
+        .workout div{
+            width: 45%;
+            vertical-align: top;
+            max-height: 300px;
+            overflow: scroll;
+        }
+        /* Set black background color, white text and some padding */
+        footer {
+          background-color: rgb(0, 0, 0);
+          color: white;
+          padding: 15px;
+        }
+    
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media only screen and (max-width: 576px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+            .workout{
+            display: block;
+            width: 95%;
+            }
+            .row.content {
+                height: auto;
+            }}
+        .B{
+            vertical-align: top;
+        }
+        body {font-family: Arial, Helvetica, sans-serif;}
+    </style>
+    
+    
 
 </head>
 <body>
@@ -123,19 +105,19 @@
     <div class="col-sm-10">
         <h1>Leaderboard</h1>
         <hr>
-
-        <div class="workout A">
+<br>
+        <div style="text-align: center" class="workout A">
             <form action="/addscores" method="post">
                 {% csrf_token %}
-                For AMRAP Scores (FEATURE COMING SOON, DO NOT ENTER ANYTHING HERE) 🙅🙅🙅:<br>
+                <span style="text-decoration: underline">For AMRAP Scores</span><br><br>
                 <input type="text" name="amrap_score" value="0"><br>
                 <br><br>
-                For Timed Scores:<br>
-                Min: <input type="text" name="minutes" value="00"> Sec:<input type="text" name="seconds" value="00"><br><br>
+                <span style="text-decoration: underline">For Timed Scores</span><br><br>
+                Min:<br> <input type="text" name="minutes" value="00"><br> Sec:<br><input type="text" name="seconds" value="00"><br><br>
                 <input type="submit"value="submit">
-            </form>
+            </form><br>
             
-            <a href="/">back</a>
+            <a href="/"> << back</a>
         </div>
     </div>
   </div>

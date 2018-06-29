@@ -11,8 +11,8 @@
   <link href="https://fonts.googleapis.com/css?family=Fugaz+One" rel="stylesheet">
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/wp-content/themes/blankslate/mdb/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/wp-content/themes/blankslate/mdb/js/mdb.min.js"></script>
+  <!-- <script type="text/javascript" src="/wp-content/themes/blankslate/mdb/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/wp-content/themes/blankslate/mdb/js/mdb.min.js"></script> -->
 
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
@@ -110,7 +110,7 @@
         <h1>Leaderboard</h1>
         <hr>
         <div class="workout A col-sm-12">
-                <h3>Option A:<br>"{{wod.title}}"</h3>
+                <h3>Option A:<br>{{wod.title}}</h3>
                 <h4 style="white-space: pre-wrap">{{wod.description}}</h4>
         </div>
         <div class="col-sm-12 name" style="display: inline-block">
@@ -132,18 +132,38 @@
                     <tr>
                         <th>Rank</th>
                         <th>Name</th>
+                        {% if wod.style == "1" %}
                         <th style="padding-right: 10px">Completed Time</th>
                     </tr>
                 </thead>
                     <tbody>
+                    
+
                         {% for i in score %}
                         <tr>
-                            
                             <td>{{ i.user.rank }}</td>
                             <td>{{ i.user.name}}</td>
                             <td>{{ i.string }}</td>
                         </tr>
                         {% endfor %}
+                    {% endif %}
+
+
+                    {% if wod.style == "0"%}
+                        <th style="padding-right: 10px">Rounds/Reps</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        {% for i in amrap %}
+                        <tr>
+                            
+                            <td>{{ i.user.rank_amrap }}</td>
+                            <td>{{ i.user.name }}</td>
+                            <td>{{ i.amrap_score }}</td>
+                        </tr>
+                        {% endfor %}
+                    {% endif %}  
+
                     </tbody>
             </table>
         </div>

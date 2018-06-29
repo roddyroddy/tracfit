@@ -6,6 +6,7 @@ class User(models.Model):
     created_at = models.DateTimeField(auto_now_add = True)
     admin = models.IntegerField(default = 0)
     rank = models.IntegerField(default = 0)
+    rank_amrap = models.IntegerField(default = 0)
 
 class Wod(models.Model):
     created_at = models.DateTimeField(auto_now_add = True)

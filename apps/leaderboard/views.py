@@ -10,16 +10,22 @@ def index(request):
     b = Wod.objects.last()
     currentwod = b.id
     c = Score.objects.filter(wod_id = currentwod).order_by("timed_score")
-    d = Score.objects.filter(wod_id = currentwod).order_by("amrap_score")
+    d = Score.objects.filter(wod_id = currentwod).order_by("-amrap_score")
     
     
     
     rank = 1
-
+    rank_amrap = 1
     for score in c:
         user = score.user
         user.rank = rank
         rank += 1
+        user.save()
+
+    for score in d:
+        user = score.user
+        user.rank_amrap = rank_amrap
+        rank_amrap += 1
         user.save()
 
 
